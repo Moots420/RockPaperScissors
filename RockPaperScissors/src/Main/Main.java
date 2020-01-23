@@ -10,7 +10,7 @@ public class Main {
 		
 	}
 	public static void newGame() {
-		if(choice != 1 || choice != 2 || choice != 3 ) { //Check that Choice hasn't been made, then request user input.
+		if(choice != 1 || choice != 2 || choice != 3  ) { //Check that Choice hasn't been made, then request user input.
 			getInput();
 		}
 		compChoice = getRandomNumber(1,3);  //Computer picks Rock, Paper or scissors.
@@ -66,8 +66,14 @@ public class Main {
     	
 		Scanner input = new Scanner(System.in) ;
 		System.out.print("Rock(1),Paper(2),Scissors(3)?");
+		try {
 		choice = input.nextInt();
-		if(choice<1 || choice>3) {
+		}catch(Exception e) {
+			System.out.println("Invalid Choice");
+			getInput();
+			
+		}
+		if(choice != 1 && choice !=2 && choice !=  3) {
 			System.out.println("Invalid Choice");
 			getInput();
 			
